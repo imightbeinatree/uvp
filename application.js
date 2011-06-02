@@ -1,3 +1,11 @@
+//sets position of thought box based on screen size
+function place_dialog(){
+  var windowH = $(window).height()/2-240;
+  var windowW = $(window).width()/2-320;
+  $("#thought_box").css('top', windowH > 0 ? windowH : 0);
+  $("#thought_box").css('left', windowW > 0 ? windowW : 0);
+  return true;
+}
 
 //takes a field id, field type, and default value
 //verifies that the field is filled in and does not have the default value
@@ -76,16 +84,19 @@ function initialize_data(){
 }
 
 
+
 $(document).ready(function(){
 
-  //load data, set up timeago, and show main dialog
+  //load data
   initialize_data();
+
+  //set up timeago, and show main dialog
   jQuery("span.timeago").timeago();
-  var windowH = $(window).height()/2-240;
-  var windowW = $(window).width()/2-320;
-  $("#thought_box").css('top', windowH > 0 ? windowH : 0);
-  $("#thought_box").css('left', windowW > 0 ? windowW : 0);
+  place_dialog();
   $("#thought_box").show();
+
+  //set handler to move position when window is resized
+  $(window).resize(place_dialog);
  
   //handle showing/hiding of default text for form inputs
   $("#name").focus(function() {
