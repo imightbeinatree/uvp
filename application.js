@@ -119,7 +119,6 @@
              $("#name").val("Your name");    
              $("#thought_text").val("Enter your thought here...");
              if(data[0] == "thought"){
-              alert(data);
                load_thought_in_dialog(data[1],data[2],"Less than a minute ago",[]);
              } else {
                $("#reply_id").val("");
