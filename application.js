@@ -34,19 +34,12 @@ function cancel_reply_form(){
 }
 
 //loads a new thought into the dialog box
-function load_thought(name, thought_text, time, comments){
+function load_thought(name, thought_text, time){
   var thought_id = $("#thoughts").children().length;
   var str = '<div class="thought" id="thought_'+thought_id+'"><p><strong>'+name+'</strong> '+thought_text+'</p>'+
             '<p class="thought_meta"><span class="thought_time timeago" title="'+time+'">'+time+'</span> &bull; '+
             '<a href="#thought_form" onclick="ready_reply_form('+thought_id+')">Reply</a></p>'+
             '<ul id="replies_'+thought_id+'" class="replies">';
-  for(i=0; i<comments.length; i++){
-    comment = comments[i];
-    str = str + '<li id="reply_'+thought_id+'_'+i+'"';
-    if(i == 0){ str = str + ' class="latest"'; }
-    str = str + '><span class="reply_text"><strong>'+comment[0]+' replied</strong> '+comment[1]+
-                '<span class="reply_time timeago" title="'+time+'">'+comment[2]+'</span></span></li>';
-  }
   str = str + '</ul></div>';
   $(str).prependTo("#thoughts");        
   return true;
@@ -67,19 +60,24 @@ function initialize_data(){
   // felt it decluttered the html to just go ahead and load most of the test data this way 
   // since i had made these handy little functions to use for the form anyway
   // typically this function would make an ajax call to get current thoughts and display them in a much more programatic fashion
-  load_thought("Brenda Jones","Make the logo bigger.","22 December 2009 14:25", []);
-  load_thought("Julie Zinger","I cant find out how 2 get 2 check my email. My password is 'password', but theirs no place to put it. Can you help me.","13 February 2010 01:13", [["John Spitzer","I think you're in the wrong forum.","13 February 2010 13:17"]]); 
-  load_thought("Darren Peakock","I hate blue. Can you add more pink?","13 February 2010 11:13",  []);       
-  load_thought("Brenda Jones","Make the logo bigger","13 February 2010 14:25",  []);
-  load_thought("Julie Zinger","I cant find out how 2 get 2 check my email. My password is 'password', but theirs no place to put it. Can you help me.","12 May 2010 01:13", [["John Spitzer","I think you're in the wrong forum.","12 May 2010 13:17"]]); 
-  load_thought("Darren Peakock","I hate blue. Can you add more pink?","12 May 2010 11:13", []);       
-  load_thought("Brenda Jones","Make the logo bigger","12 May 2010 14:25",  []);
-  load_thought("Julie Zinger","I cant find out how 2 get 2 check my email. My password is 'password', but theirs no place to put it. Can you help me.","11 July 2010 01:13", [["John Spitzer","I think you're in the wrong forum.","11 July 2010 13:17"],["Brenda Jones","Fo' real.","11 July 2010 14:23"]]); 
-  load_thought("Darren Peakock","I hate blue. Can you add more pink?","11 July 2010 11:13",  []);       
-  load_thought("Brenda Jones","Make the logo bigger","12 July 2010 04:05",[]);
-  load_thought("Julie Zinger","I cant find out how 2 get 2 check my email. My password is 'password', but theirs no place to put it. Can you help me.","1 June 2011 13:22", [["John Spitzer","I think you're in the wrong forum.","1 June 2011 18:22"]]); 
-  load_thought("Darren Peakock","I hate blue. Can you add more pink?","1 June 2011 22:22", []);       
-  load_thought("Brenda Jones","Make the logo bigger","1 June 2011 23:22", []);      
+  load_thought("Brenda Jones","Make the logo bigger.","22 December 2009 14:25");
+  load_thought("Julie Zinger","I cant find out how 2 get 2 check my email. My password is 'password', but theirs no place to put it. Can you help me.","13 February 2010 01:13");
+  load_reply("John Spitzer","I think you're in the wrong forum.","13 February 2010 13:17",1);
+  load_thought("Darren Peakock","I hate blue. Can you add more pink?","13 February 2010 11:13");       
+  load_thought("Brenda Jones","Make the logo bigger","13 February 2010 14:25");
+  load_thought("Julie Zinger","I cant find out how 2 get 2 check my email. My password is 'password', but theirs no place to put it. Can you help me.","12 May 2010 01:13");
+  load_reply("John Spitzer","I think you're in the wrong forum.","12 May 2010 13:17", 4);
+  load_thought("Darren Peakock","I hate blue. Can you add more pink?","12 May 2010 11:13");       
+  load_thought("Brenda Jones","Make the logo bigger","12 May 2010 14:25");
+  load_thought("Julie Zinger","I cant find out how 2 get 2 check my email. My password is 'password', but theirs no place to put it. Can you help me.","11 July 2010 01:13"); 
+  load_reply("Brenda Jones","Fo' real.","11 July 2010 14:23", 7);  
+  load_reply("John Spitzer","I think you're in the wrong forum.","11 July 2010 13:17", 7);
+  load_thought("Darren Peakock","I hate blue. Can you add more pink?","11 July 2010 11:13");       
+  load_thought("Brenda Jones","Make the logo bigger","12 July 2010 04:05");
+  load_thought("Julie Zinger","I cant find out how 2 get 2 check my email. My password is 'password', but theirs no place to put it. Can you help me.","1 June 2011 13:22");
+  load_reply("John Spitzer","I think you're in the wrong forum.","1 June 2011 18:22", 10);
+  load_thought("Darren Peakock","I hate blue. Can you add more pink?","1 June 2011 22:22");       
+  load_thought("Brenda Jones","Make the logo bigger","1 June 2011 23:22");      
   return true;
 }
 
@@ -130,7 +128,7 @@ $(document).ready(function(){
        $("#name").val("Your name");    
        $("#thought_text").val("Enter your thought here...");
        if(data[0] == "thought"){
-         load_thought(data[1],data[2],data[3],[]);
+         load_thought(data[1],data[2],data[3]);
        } else {
          $("#reply_id").val("");
          $("#reply_message").hide();
@@ -147,4 +145,5 @@ $(document).ready(function(){
     alert("Yes, clicking this should close the dialog, but then how would you reopen it? Implement Closing Logic Here");
   });         
 });
+
 
