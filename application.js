@@ -28,12 +28,16 @@ function cancel_reply_form(){
 //loads a new thought into the dialog box
 function load_thought(name, thought_text, time, comments){
   var thought_id = $("#thoughts").children().length;
-  var str = '<div class="thought" id="thought_'+thought_id+'"><p><strong>'+name+'</strong> '+thought_text+'</p><p class="thought_meta"><span class="thought_time timeago" title="'+time+'">'+time+'</span> &bull; <a href="#thought_form" onclick="ready_reply_form('+thought_id+')">Reply</a></p><ul id="replies_'+thought_id+'" class="replies">';
+  var str = '<div class="thought" id="thought_'+thought_id+'"><p><strong>'+name+'</strong> '+thought_text+'</p>'+
+            '<p class="thought_meta"><span class="thought_time timeago" title="'+time+'">'+time+'</span> &bull; '+
+            '<a href="#thought_form" onclick="ready_reply_form('+thought_id+')">Reply</a></p>'+
+            '<ul id="replies_'+thought_id+'" class="replies">';
   for(i=0; i<comments.length; i++){
     comment = comments[i];
     str = str + '<li id="reply_'+thought_id+'_'+i+'"';
     if(i == 0){ str = str + ' class="latest"'; }
-    str = str + '><span class="reply_text"><strong>'+comment[0]+' replied</strong> '+comment[1]+'<span class="reply_time timeago" title="'+time+'">'+comment[2]+'</span></span></li>';
+    str = str + '><span class="reply_text"><strong>'+comment[0]+' replied</strong> '+comment[1]+
+                '<span class="reply_time timeago" title="'+time+'">'+comment[2]+'</span></span></li>';
   }
   str = str + '</ul></div>';
   $(str).prependTo("#thoughts");        
@@ -45,7 +49,8 @@ function load_reply(name, reply_text, time, thought_id){
   var reply_num = $("#replies_"+thought_id).children().length;
   var str = '<li id="reply_'+thought_id+'_'+reply_num+'"';
   if(reply_num == 0){ str = str + ' class="latest"'; }
-  str = str + '><span class="reply_text"><strong>'+name+' replied</strong> '+reply_text+'<span class="reply_time timeago" title="'+time+'">'+time+'</span></span></li>';
+  str = str + '><span class="reply_text"><strong>'+name+' replied</strong> '+reply_text+
+              '<span class="reply_time timeago" title="'+time+'">'+time+'</span></span></li>';
   $(str).appendTo("#replies_"+thought_id);
   return true;
 }    
