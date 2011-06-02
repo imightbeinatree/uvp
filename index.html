@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head>
+    <title>UVP</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />    
+    <link rel='stylesheet'  type="text/css" href="main.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script type="text/javascript" src="application.js"></script>
+  </head>
+  <body>
+    <div id="thought_box">
+      <div id="thought_header">
+        <input type="button" title="Close This" value="Close" id="thought_close" />        
+        <h1>What do you think?</h1>
+      </div>
+      <div id="thought_form">
+        <p class="error" id="thought_text_error">You must enter a thought.</p>
+        <p class="error" id="name_error">You must enter your name.</p>          
+        <p id="reply_message">Your Reply (<a href="#" onclick="cancel_reply_form()">cancel</a>)</p>
+        <form action="#" method="post">
+          <div>
+            <textarea id="thought_text" name="thought_text">Enter your thought here...</textarea>
+            <input type="text" id="name" name="name" value="Your name" />
+            <input type="hidden" id="reply_id" name="reply_id" value="" />            
+            <input type="submit" id="submit" name="submit" value="Post" />
+          </div>
+        </form>
+      </div>
+      <div id="thoughts">
+        <!-- html example of thought with comment, rest of test data loaded with js-->
+        <!--        
+        <div class="thought" id="thought_1">
+          <p><strong>Brenda Jones</strong> Make the logo bigger.</p>
+          <p class="thought_meta">22 December 2009 14:25 &bull; <a href="#" class="reply_link">Reply</a></p>
+        </div>
+                <div class="thought">
+                  <strong>Julie Zinger</strong> I cant find out how 2 get 2 check my email. My password is 'password', but theirs no place to put it. Can you help me.
+                  <p class="thought_meta">11 July 2010 01:13 &bull; <a href="#reply_link">Reply</a></p>
+                  <ul class="replies">
+                    <li class="latest"><span class="reply_text"><strong>John Spitzer replied</strong> I think you're in the wrong forum.<span class="reply_time">11 July 2010 13:17</span></span></li>
+                    <li><span class="reply_text"><strong>John Spitzer replied</strong> I think you're in the wrong forum.<span class="reply_time">4 hours ago</span></span></li>
+                  </ul>
+                </div>    
+        -->          
+      </div>
+    </div>
+  </body>
+</html>
