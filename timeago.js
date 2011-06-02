@@ -32,13 +32,13 @@
       strings: {
         prefixAgo: null,
         prefixFromNow: null,
-        suffixAgo: "ago",
+        suffixAgo: null,
         suffixFromNow: "from now",
-        seconds: "Less than a minute",
+        seconds: "Less than a minute ago",
         minute: "about a minute",
-        minutes: "%d minutes",
+        minutes: "%d minutes ago",
         hour: "about an hour",
-        hours: "%d hours",
+        hours: "%d hours ago",
         day: "a day",
         days: "%d days",
         month: "about a month",
@@ -48,7 +48,7 @@
         numbers: []
       }
     },
-    inWords: function(distanceMillis) {
+    inWords: function(distanceMillis, origdate) {
       var $l = this.settings.strings;
       var prefix = $l.prefixAgo;
       var suffix = $l.suffixAgo;
@@ -71,10 +71,23 @@
         var value = ($l.numbers && $l.numbers[number]) || number;
         return string.replace(/%d/i, value);
       }
-
+      function month_display(num){
+        var months = ["January", "Febuary","March","April","May","June","July","August","Spetember","October","November","December"];
+        return months[num];
+      }
+      function zero_pad_display(num){
+        if(num > 9){ return num; }
+        return '0'+num;
+      }
+      function make_date_string(origts){
+        return origts.getDate() + ' ' + month_display(origts.getMonth()) + ' ' + origts.getFullYear() + ' ' + zero_pad_display(origts.getHours()) + ':' + zero_pad_display(origts.getMinutes());
+      }
+      var origts = new Date(origdate);
       var words = seconds < 60 && substitute($l.seconds, Math.round(seconds)) ||
       minutes < 60 && substitute($l.minutes, Math.round(minutes)) ||
-      hours < 24 && substitute($l.hours, Math.round(hours));
+      hours < 24 && substitute($l.hours, Math.round(hours)) ||
+      make_date_string(origts);
+    
       
       return $.trim([prefix, words, suffix].join(" "));
     },
@@ -126,7 +139,7 @@
   }
 
   function inWords(date) {
-    return $t.inWords(distance(date));
+    return $t.inWords(distance(date), date);
   }
 
   function distance(date) {

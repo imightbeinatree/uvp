@@ -76,7 +76,7 @@ function initialize_data(){
   load_thought("Brenda Jones","Make the logo bigger","12 May 2010 14:25",  []);
   load_thought("Julie Zinger","I cant find out how 2 get 2 check my email. My password is 'password', but theirs no place to put it. Can you help me.","11 July 2010 01:13", [["John Spitzer","I think you're in the wrong forum.","11 July 2010 13:17"],["Brenda Jones","Fo' real.","11 July 2010 14:23"]]); 
   load_thought("Darren Peakock","I hate blue. Can you add more pink?","11 July 2010 11:13",  []);       
-  load_thought("Brenda Jones","Make the logo bigger","11 July 2010 14:25",[]);
+  load_thought("Brenda Jones","Make the logo bigger","12 July 2010 04:05",[]);
   load_thought("Julie Zinger","I cant find out how 2 get 2 check my email. My password is 'password', but theirs no place to put it. Can you help me.","1 June 2011 13:22", [["John Spitzer","I think you're in the wrong forum.","1 June 2011 18:22"]]); 
   load_thought("Darren Peakock","I hate blue. Can you add more pink?","1 June 2011 22:22", []);       
   load_thought("Brenda Jones","Make the logo bigger","1 June 2011 23:22", []);      
