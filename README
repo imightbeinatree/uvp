@@ -6,8 +6,10 @@ Company: Cloudspace
 
 To Run Demo: Be capable of running PHP, point Apache (or webserver of choice) at this directory, and visit the index.html file.
 
+The index file sets up the basic html and includes the js libraries.  Event handlers are added in application.js (this file contains the javascript that I wrote). I adapted a popular time ago in words library to meet your requirements and that code is contained in the timeago.js file.
+
 The file ajax.php receives the form posts and returns a JSON representation of the object.
 
-The main javascript is in application.js.  I adapted a popular time ago in words library to meet your requirements and that code is contained in the timeago.js file.
+I was unable to download the reply icon from dropbox.  I have substituted a 16x16 image that I screen-captured from the assignment PDF.
 
-I have included primes.html which includes a link to run a rather naive attempt at the first thousand primes problem-- though it is likely to crash your browser.  Shouldn't the numbers be stored in a database or flat file if not simply hard coded into the javascript?
+Regarding the bonus question, I'll be happy to give it a shot this weekend but wanted to get you the code for the assignment now.  Is the bonus question meant as simply a challenge to write clever code or is it a question of how would you implement this if it were truly required for a program.  I admit we discussed this issue at work between a few people.  Our general consensus was that you should not compute it.  You should store the numbers in a hard coded array and return them.  The set is a static set of information and should not be computed over and over again.
