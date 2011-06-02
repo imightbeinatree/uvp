@@ -34,11 +34,11 @@
         prefixFromNow: null,
         suffixAgo: "ago",
         suffixFromNow: "from now",
-        seconds: "less than a minute",
+        seconds: "Less than a minute",
         minute: "about a minute",
         minutes: "%d minutes",
         hour: "about an hour",
-        hours: "about %d hours",
+        hours: "%d hours",
         day: "a day",
         days: "%d days",
         month: "about a month",
@@ -72,18 +72,10 @@
         return string.replace(/%d/i, value);
       }
 
-      var words = seconds < 45 && substitute($l.seconds, Math.round(seconds)) ||
-        seconds < 90 && substitute($l.minute, 1) ||
-        minutes < 45 && substitute($l.minutes, Math.round(minutes)) ||
-        minutes < 90 && substitute($l.hour, 1) ||
-        hours < 24 && substitute($l.hours, Math.round(hours)) ||
-        hours < 48 && substitute($l.day, 1) ||
-        days < 30 && substitute($l.days, Math.floor(days)) ||
-        days < 60 && substitute($l.month, 1) ||
-        days < 365 && substitute($l.months, Math.floor(days / 30)) ||
-        years < 2 && substitute($l.year, 1) ||
-        substitute($l.years, Math.floor(years));
-
+      var words = seconds < 60 && substitute($l.seconds, Math.round(seconds)) ||
+      minutes < 60 && substitute($l.minutes, Math.round(minutes)) ||
+      hours < 24 && substitute($l.hours, Math.round(hours));
+      
       return $.trim([prefix, words, suffix].join(" "));
     },
     parse: function(iso8601) {
