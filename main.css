@@ -2,14 +2,14 @@ body {background-color:#283d65; font-family:arial, tahoma, sans-serif; font-size
 #thought_box {display:none; z-index:9999; position:absolute; top:0px; left:0px; width:640px; height:480px; margin:auto;  vertical-align:middle; background-color:#e2e6cf; border-radius:8px;}
 
 #thought_header {background-color:#809900; padding:1px; color:#fff; border-top-left-radius:8px; border-top-right-radius:8px; }
-#thought_header h1 {font-size:100%; text-align:center;}
 #thought_header input {float:right; border-radius:4px; margin:8px 10px 0px 0px; background-color:#e2e6cf; color:#809900; border:1px solid #809900; padding:5px 10px; font-weight:bold; font-size:65%;}
+h1 {font-size:100%; text-align:center;}
 
 #thought_form {margin:10px;}
-#thought_form textarea { border-radius:4px; width:98%; margin:0px; color:#bdbdbd;  border:1px solid #809900; padding:5px;}
-#thought_form #name { border-radius:4px; margin-top:10px; width:200px; color:#bdbdbd;  border:1px solid #809900; padding:5px;}    
-#thought_form #submit {float:right; margin-top:10px;}
-#thought_form .error {display:none; color:#c00; font-weight:bold; border:1px solid #c00; font-size:90%; padding:5px;}
+textarea { border-radius:4px; width:98%; margin:0px; color:#bdbdbd;  border:1px solid #809900; padding:5px;}
+#name { border-radius:4px; margin-top:10px; width:200px; color:#bdbdbd;  border:1px solid #809900; padding:5px;}    
+#submit {float:right; margin-top:10px;}
+.error {display:none; color:#c00; font-weight:bold; border:1px solid #c00; font-size:90%; padding:5px;}
 #reply_message {display:none; font-weight:bold; font-size:90%;}
 
 #thoughts {height:333px;width:640px; overflow:auto; font-size:90%; background-color:#f3f6fa;}
@@ -18,7 +18,7 @@ body {background-color:#283d65; font-family:arial, tahoma, sans-serif; font-size
 #thoughts p.thought_meta {color:#bdbdbd; margin:0px; padding:0px 0px 10px 0px; font-size:80%;}    
 #thoughts p.thought_meta a {color:#bdbdbd; }
 #thoughts p.thought_meta a:visited {color:#bdbdbd; } 
-#thoughts .replies li {margin:10px 0px 0px -40px; padding:0px;   list-style-type:none; background:url("reply.png") top left no-repeat;}
-#thoughts .replies li.latest {margin-top:-10px;}
-#thoughts .replies li .reply_text {display:block; margin-left:30px;}
-#thoughts .reply_time {display:block; margin-top:5px; font-size:80%; color:#bdbdbd;}
+.replies li {margin:10px 0px 0px -40px; padding:0px;   list-style-type:none; background:url("reply.png") top left no-repeat;}
+.replies li.latest {margin-top:-10px;}
+.replies li .reply_text {display:block; margin-left:30px;}
+.reply_time {display:block; margin-top:5px; font-size:80%; color:#bdbdbd;}

@@ -1,0 +1,15 @@
+README
+------------------
+User Voice Practical
+Coder: Michael Orr
+Company: Cloudspace
+
+To Run Demo: Point Apache at this directory and be able to run PHP.
+
+The index.html file is the main page.
+
+The ajax.php file receives the form posts and returns JSON.
+
+My main javascript is in application.js.  I adapted a popular time ago in words library to meet your requirements and that code is contained in the timeago.js file.
+
+I have included primes.html which includes a link to run a rather naive attempt at the first thousand primes issue though it is likely to crash your browser.  Shouldn't the numbers be stored in a database or flat file if not simply hard coded into the javascript?
