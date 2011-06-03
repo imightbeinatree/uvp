@@ -61,18 +61,18 @@ function initialize_data(){
   // since i had made these handy little functions to use for the form anyway
   // typically this function would make an ajax call to get current thoughts and display them in a much more programatic fashion
   load_thought("Brenda Jones","Make the logo bigger.","22 December 2009 14:25");
-  load_thought("Julie Zinger","I cant find out how 2 get 2 check my email. My password is 'password', but theirs no place to put it. Can you help me.","13 February 2010 01:13");
+  load_thought("Julie Zinger","I cant find out how 2 get 2 check my email. My password is 'password', but theirs no place to put it. Can you help me.","13 February 2010 01:01");
   load_reply("John Spitzer","I think you're in the wrong forum.","13 February 2010 13:17",1);
-  load_thought("Darren Peakock","I hate blue. Can you add more pink?","13 February 2010 11:13");       
+  load_thought("Darren Peakock","I hate pink. Can you add more orange?","13 February 2010 11:13");
   load_thought("Brenda Jones","Make the logo bigger","13 February 2010 14:25");
-  load_thought("Julie Zinger","I cant find out how 2 get 2 check my email. My password is 'password', but theirs no place to put it. Can you help me.","12 May 2010 01:13");
+  load_thought("Julie Zinger","I cant find out how 2 get 2 check my email. My password is 'password', but theirs no place to put it. Can you help me.","12 May 2010 00:13");
   load_reply("John Spitzer","I think you're in the wrong forum.","12 May 2010 13:17", 4);
-  load_thought("Darren Peakock","I hate blue. Can you add more pink?","12 May 2010 11:13");       
+  load_thought("Darren Peakock","I hate orange. Can you add more purple?","12 May 2010 11:13");       
   load_thought("Brenda Jones","Make the logo bigger","12 May 2010 14:25");
   load_thought("Julie Zinger","I cant find out how 2 get 2 check my email. My password is 'password', but theirs no place to put it. Can you help me.","11 July 2010 01:13"); 
-  load_reply("Brenda Jones","Fo' real.","11 July 2010 14:23", 7);  
   load_reply("John Spitzer","I think you're in the wrong forum.","11 July 2010 13:17", 7);
-  load_thought("Darren Peakock","I hate blue. Can you add more pink?","11 July 2010 11:13");       
+  load_reply("Brenda Jones","Fo' real.","11 July 2010 14:23", 7);    
+  load_thought("Darren Peakock","I hate purple. Can you add more blue?","11 July 2010 11:13");       
   load_thought("Brenda Jones","Make the logo bigger","12 July 2010 04:05");
   load_thought("Julie Zinger","I cant find out how 2 get 2 check my email. My password is 'password', but theirs no place to put it. Can you help me.","1 June 2011 13:22");
   load_reply("John Spitzer","I think you're in the wrong forum.","1 June 2011 18:22", 10);
